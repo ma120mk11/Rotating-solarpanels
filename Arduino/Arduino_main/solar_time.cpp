@@ -1,8 +1,13 @@
 /*
  * v1
- * Calculates the sun's position 
- * Ove Niemistö
+ * Calculates the sun's position, depending on time and your location.
+ * 
+ * The formula is based on the General Solar Position Calculations pdf taken from
+ * https://www.esrl.noaa.gov/gmd/grad/solcalc/solareqns.PDF
+ * 
+ * Ove Niemistö 2020
  */
+ 
 #include <math.h>
 
 
@@ -116,6 +121,7 @@ float getAzimuth(int year1, int month1, int day1, int hour1, int minute1){
     azimuth = -((sin(latitudeRad) * cos(zenith) - sin(decl))/(cos(latitudeRad) * sin(zenith)));
     azimuth = acos(azimuth);
 
+  // Convert to Degrees:  
     azimuthDeg =  (azimuth * 4068) / 71.0;
     
     if (azimuthDeg < 180 && solarTimeAngle > 0){

@@ -8,7 +8,7 @@
  
 //***********************************************************************************************
 // SETTINGS:
-// Pins for direction relays. These should not be used with real motor. If one of them fails it will cause a short circuit.
+// Pins for direction relays. These SHOULD NOT be used with real motor. If one of them fails it will cause a short circuit.
 // USE A RELAY WICH MECANICALLY CONTROLS BOTH OUTPUTS AT THE SAME TIME. Direction2 is not needed in that case.                                     
 #define direction1 22
 #define direction2 23

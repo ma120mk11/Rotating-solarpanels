@@ -71,6 +71,9 @@ void logToCloud(float value0, float value1, float value2, float value3, float va
               + "&val3=" + String(value3)
               + "&val4=" + String(value4)
               + "&val5=" + String(value5);
+              // If you need to upload more data rows, add arguments here. Note that you must update the function
+              // and the google script also.
+              
   bool i = 0;
   ESP8266Client client;
   while(i == 0){
