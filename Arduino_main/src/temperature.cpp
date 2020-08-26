@@ -18,15 +18,14 @@ DallasTemperature sensors(&oneWirePin);
 
 
 void temperature_INIT() {
-	
-  sensors.begin();
-  Serial.println("Temperature initialized");
+	sensors.begin();
+	Serial.println("Temperature initialized");
 }
 
 
 float temperature_read(int index){
-  float temperature = 0;
-  sensors.requestTemperatures();
-  temperature = sensors.getTempCByIndex(index);
-  return temperature;
+	float temperature = 0;
+	sensors.requestTemperatures();
+	temperature = sensors.getTempCByIndex(index);
+	return temperature;
 }
