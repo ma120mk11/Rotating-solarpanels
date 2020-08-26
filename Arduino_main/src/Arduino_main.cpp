@@ -1,13 +1,13 @@
 /* This program depends on a couple of external libraries that you have to download and install for the program to work.
  *  
- * - RTClib library:  https://github.com/NeiroNx/RTCLib
- * - DallasTemperature library: https://github.com/milesburton/Arduino-Temperature-Control-Library
+ * - RTClib library:          		https://github.com/NeiroNx/RTCLib
+ * - DallasTemperature library: 	https://github.com/milesburton/Arduino-Temperature-Control-Library
  * - OneWire: 
- * - SoftwareSerial: Can be found in the library manager. (may be installed by default).
- *   These two can be downloaded from https://github.com/CytronTechnologies/CytronWiFiShield
+ * - SoftwareSerial: 				Can be found in the library manager. (may be installed by default).
+ *   These two are included in: 	https://github.com/CytronTechnologies/CytronWiFiShield
  * - CytronWiFiShield.h
  * - CytronWiFiClient.h
- * - Ewma filters : Install from library manager.
+ * - Ewma filters : 				Install from library manager.
  * 
  * Each file has a SETTINGS section in the beginning.
  * 

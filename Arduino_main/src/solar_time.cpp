@@ -6,7 +6,7 @@
  * https://www.esrl.noaa.gov/gmd/grad/solcalc/solareqns.PDF
  * 
  * Ove Niemistö 2020
- */
+*/
  
 #include <math.h>
 
@@ -39,7 +39,7 @@ bool isLeapYear = 1;
 int day_of_year;
 
 
-// FUNCTIONS:
+// Calculates the day of the year (1-366)
 int dayOfYear(int year, int month, int day){
   int day_of_year = day;
   
@@ -58,8 +58,10 @@ int dayOfYear(int year, int month, int day){
   return day_of_year;
 }
 
-
+// Calculates the sun's position relative to north
 float getAzimuth(int year1, int month1, int day1, int hour1, int minute1){
+  
+  // TODO: We don't need to create another variabla for these
   // update variables
   year = year1;
   month = month1;
