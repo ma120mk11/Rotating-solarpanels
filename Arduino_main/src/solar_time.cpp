@@ -71,16 +71,16 @@ float getAzimuth(int year1, int month1, int day1, int hour1, int minute1){
   double eqtime;
   double decl;
   double latitudeRad = (latitude * 71) / 4068.0;
-  double longitudeRad = (longitude * 71) / 4068.0;
+ // double longitudeRad = (longitude * 71) / 4068.0;
   double time_offset;
   double tst;                                       // True Solar Time
   double solarTimeAngle;
   double solarTimeAngleRad;
   double zenith;
-  double zenithDeg;
+  //double zenithDeg;
   double azimuth;
   double azimuthDeg;
-  double elevationDeg;
+  //double elevationDeg;
   
   day_of_year = dayOfYear(year, month, day);
   
@@ -112,10 +112,10 @@ float getAzimuth(int year1, int month1, int day1, int hour1, int minute1){
   // Zenith angle. This is the angle between the sun and vertical (straight up).
     zenith = sin(latitudeRad) * sin(decl) + cos(latitudeRad) * cos(decl) * cos(solarTimeAngleRad);
     zenith = acos(zenith); 
-    zenithDeg = (zenith * 4068) / 71.0;
+   // zenithDeg = (zenith * 4068) / 71.0;
     
   // Elevation angle (altitude):  
-    elevationDeg = 90.0 - zenithDeg;
+  //  elevationDeg = 90.0 - zenithDeg;
 
   // Azimuth: 
     azimuth = -((sin(latitudeRad) * cos(zenith) - sin(decl))/(cos(latitudeRad) * sin(zenith)));

@@ -1,21 +1,24 @@
 /*
  * 
- */
- 
+*/
+#include <Arduino.h> 
+#include "RTClib.h"
+#include "rtc.h"
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
+DS1307 time;
 
 void rtc_INIT(){
-    if (! rtc.begin()) {
+    if (! time.begin()) {
     Serial.println("Couldn't find RTC");
     while (1);
   }
 
-  if (! rtc.isrunning()) {
+  if (! time.isrunning()) {
     Serial.println("RTC is NOT running!");
     
     // Set the date and time the sketch will be uploaded an run on:
-    rtc.adjust(DateTime(2020, 6, 8, 14 ,30));
+    time.adjust(DateTime(2020, 6, 8, 14 ,30));
     Serial.println("Current time set to:");
     printTime();
   }
@@ -23,7 +26,7 @@ void rtc_INIT(){
 
 
 void printTime(){
-  DateTime now = rtc.now();
+  DateTime now = time.now();
   Serial.print(now.day(), DEC);
   Serial.print('.');
   Serial.print(now.month(), DEC);

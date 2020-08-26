@@ -1,6 +1,6 @@
 /* This program depends on a couple of external libraries that you have to download and install for the program to work.
  *  
- * - RTClib library:
+ * - RTClib library:  https://github.com/NeiroNx/RTCLib
  * - DallasTemperature library: https://github.com/milesburton/Arduino-Temperature-Control-Library
  * - OneWire: 
  * - SoftwareSerial: Can be found in the library manager. (may be installed by default).
@@ -12,12 +12,15 @@
  * Each file has a SETTINGS section in the beginning.
  * 
  */
-
-#include "RTClib.h"
+#include <Arduino.h>            // Nedded when using VSC
+#include <RTClib.h>
 #include <Wire.h>
 #include "log_to_cloud.h"
 #include "temperature.h"
 #include "solar_time.h"
+#include "motor.h"
+#include "LDR.h"
+#include "rtc.h"
 
 
 //***********************************************************************************************
@@ -40,20 +43,21 @@ int rawLeft = 0;
 int rawRight = 0;
 int ldrDiff = 0;
 int lightPercent;
+int currentPos;             // Variable to store current set position.
 
-RTC_DS1307 rtc;
+DS1307 rtc;
 
 /*  ******  FUNCTIONS  ******  */
-void  calibrate();              // motor
+/*void  calibrate();              // motor
 void  calibrateStepped();
 void  goTo(int angle);
 void  turnLeft();
 void  turnRight();
-void  motor_INIT();
-int   angleToMs(int angle);
-void  rtc_INIT();                // RTC
-void  printTime();               // Prints the current date and time to the serial monitor.
-void  readLDR();
+int   angleToMs(int angle);*/
+//void  rtc_INIT();                // RTC
+//void  printTime();               // Prints the current date and time to the serial monitor.
+//void  calibrateWithLDR();         // 
+//int   calculateDrift();
 
 void setup() {
   Serial.begin(9600);
@@ -62,6 +66,8 @@ void setup() {
   wifi_INIT();
   rtc_INIT();
   motor_INIT();
+  
+  calibrateWithLDR();       // for testing
   Serial.println("*************************************   SETUP DONE");
 }
 

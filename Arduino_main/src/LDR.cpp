@@ -2,10 +2,11 @@
  * Prints LDR values to the serial monitor
  * 
  * Use Telemetry to monitor data.
- */
+*/
 
 #include <Ewma.h>
 #include <EwmaT.h>
+#include <Arduino.h>
 
 //***********************************************************************************************
 // SETTINGS:
@@ -24,7 +25,11 @@ Ewma adcFilter1(smoothing);
 Ewma adcFilter2(smoothing); 
 
 
-
+// Variables:
+extern int rawLeft;
+extern int rawRight;
+extern int ldrDiff;
+extern int lightPercent;
 
 // Uncomment if a calibration curve is used
 // int rawRightComp = 0;
