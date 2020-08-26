@@ -12,6 +12,7 @@
  * Each file has a SETTINGS section in the beginning.
  * 
  */
+
 #include <Arduino.h>            // Nedded when using VSC
 #include <RTClib.h>
 #include <Wire.h>
@@ -21,7 +22,6 @@
 #include "motor.h"
 #include "LDR.h"
 #include "rtc.h"
-
 
 //***********************************************************************************************
 // SETTINGS:
@@ -38,26 +38,15 @@
 //***********************************************************************************************
 
 bool count;
+
 // For LDR 
-int rawLeft = 0;
-int rawRight = 0;
-int ldrDiff = 0;
+int rawLeft = 0;            // Latest LDR reading
+int rawRight = 0;           // Latest LDR reading
+int ldrDiff = 0;            // Latest difference between left and right
 int lightPercent;
-int currentPos;             // Variable to store current set position.
+int currentPos;             // The angle the panel is currently at
 
 DS1307 rtc;
-
-/*  ******  FUNCTIONS  ******  */
-/*void  calibrate();              // motor
-void  calibrateStepped();
-void  goTo(int angle);
-void  turnLeft();
-void  turnRight();
-int   angleToMs(int angle);*/
-//void  rtc_INIT();                // RTC
-//void  printTime();               // Prints the current date and time to the serial monitor.
-//void  calibrateWithLDR();         // 
-//int   calculateDrift();
 
 void setup() {
   Serial.begin(9600);
